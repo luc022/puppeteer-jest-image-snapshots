@@ -10,7 +10,7 @@ describe('Visual Regression Tesing', () => {
 
     beforeAll(async function() {
         browser = await puppeteer.launch({
-            headless: true            
+            headless: false            
         });
         page = await browser.newPage();
     });
@@ -67,6 +67,11 @@ describe('Visual Regression Tesing', () => {
             (document.querySelectorAll('h1') || []).forEach(element => element.remove());
         });
         await page.waitForTimeout(5000);
+        const image = await page.screenshot();
+        expect(image).toMatchImageSnapshot({
+            failureTresholdType: 'percent',
+            failureThreshold: 0.01,
+        }); 
     });
 
  });
