@@ -1,4 +1,4 @@
-# snapshots-puppeteer-jest
+# puppeteer-jest-image-snapshots
 ### Example visual regression test using puppeteer and jest-image-snapshots
 
 ### Testu suite contains:
